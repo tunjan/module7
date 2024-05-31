@@ -41,7 +41,6 @@ pip install -r requirements.txt
 Download the dataset and run the pipeline:
 
 ```sh
-dvc init
 dvc pull
 dvc repro
 ```
