@@ -1,0 +1,14 @@
+stages:
+  clean_data:
+    cmd: python clean_data.py titanic.csv clean_titanic.csv
+    deps:
+      - titanic.csv
+    outs:
+      - clean_titanic.csv
+  train_model:
+    cmd: python train_model.py clean_titanic.csv model_metrics.txt
+    deps:
+      - clean_titanic.csv
+    metrics:
+      - model_metrics.txt:
+          cache: false
