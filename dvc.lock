@@ -1,0 +1,26 @@
+schema: '2.0'
+stages:
+  clean_data:
+    cmd: python clean_data.py titanic.csv clean_titanic.csv
+    deps:
+    - path: titanic.csv
+      hash: md5
+      md5: 61fdd54abdbf6a85b778e937122e1194
+      size: 60302
+    outs:
+    - path: clean_titanic.csv
+      hash: md5
+      md5: 195de73e5dfae0112b7a7b6b3d7959c9
+      size: 28793
+  train_model:
+    cmd: python train_model.py clean_titanic.csv model_metrics.txt
+    deps:
+    - path: clean_titanic.csv
+      hash: md5
+      md5: 195de73e5dfae0112b7a7b6b3d7959c9
+      size: 28793
+    outs:
+    - path: model_metrics.txt
+      hash: md5
+      md5: ad25c6ede96fcb492f9eef579c65b55d
+      size: 29
